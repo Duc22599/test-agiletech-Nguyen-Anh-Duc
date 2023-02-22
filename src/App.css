@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+/* * {
+  font-family: "Inter", Helvetica, 'Avenir' !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+{loading ? (
+  <>
+    <TableContainer sx={{ mt: "34.72px" }} component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="a dense table">
+        <TableHead>
+          <TableRow>
+            <TableCell align="center" sx={{ border: 1 }}>
+              ID
+            </TableCell>
+            <TableCell sx={{ border: 1 }} align="center">
+              Title
+            </TableCell>
+            <TableCell sx={{ border: 1 }} align="center">
+              Description
+            </TableCell>
+            <TableCell sx={{ border: 1 }} align="center">
+              Tags
+            </TableCell>
+            <TableCell sx={{ border: 1 }} align="center">
+              Action
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {postList
+            .filter((value) => {
+              if (searchTitle === "") {
+                return value;
+              } else if (
+                value.title
+                  .toLowerCase()
+                  .includes(searchTitle.toLowerCase())
+              ) {
+                return value;
+              }
+            })
+            .map((post, index) => (
+              <TableRow key={post.id}>
+                <TableCell
+                  sx={{ border: 1 }}
+                  component="th"
+                  scope="row"
+                  align="center"
+                >
+                  {index}
+                </TableCell>
+                <TableCell sx={{ border: 1 }} align="center">
+                  {post.title}
+                </TableCell>
+                <TableCell sx={{ border: 1 }} align="center">
+                  {post.description}
+                </TableCell>
+                <TableCell sx={{ border: 1 }} align="center">
+                  {post.tags.join(",")}
+                </TableCell>
+                <TableCell sx={{ border: 1 }} align="center">
+                  <Box display="flex" justifyContent={"center"}>
+                    <ModeEditIcon
+                      onClick={() => {
+                        handleOpenEdit(post.id);
+                      }}
+                    />
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+                    <DeleteIcon
+                      onClick={() => handleDelete(post.id)}
+                    />
+                  </Box>
+                </TableCell>
+              </TableRow>
+            ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  </>
+) : (
+  <>
+    <Box sx={{ display: "flex" }}>
+      <CircularProgress />
+    </Box>
+  </>
+)} */
