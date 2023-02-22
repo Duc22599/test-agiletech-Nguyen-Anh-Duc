@@ -153,7 +153,7 @@ export const Profile = () => {
                               {post.description}
                             </TableCell>
                             <TableCell sx={{ border: 1 }} align="center">
-                              {post.tags.join(",")}
+                              {post.tags}
                             </TableCell>
                             <TableCell sx={{ border: 1 }} align="center">
                               <Box display="flex" justifyContent="center">
